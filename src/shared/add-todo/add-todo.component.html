@@ -3,7 +3,7 @@
         <h3 class="text-xl font-medium">Title</h3>
         <form class="example-form mt-5">
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Enter Task Name">
+                <input matInput placeholder="Enter Task Name" [(ngModel)]="task" name="task">
             </mat-form-field>
         </form>
     </div>
@@ -11,23 +11,52 @@
         <h3 class="text-xl font-medium">Description</h3>
         <form class="mt-5 ">
             <mat-form-field class="example-full-width">
-                <textarea matInput placeholder="Enter Task Description"></textarea>
+                <textarea matInput placeholder="Enter Task Description" [(ngModel)]="description"
+                    name="description"></textarea>
             </mat-form-field>
         </form>
     </div>
     <div>
         <section>
-            <div class="example-button-row flex items-center px-5">
-                <button mat-raised-button>Add</button>
-                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
+            <div class="example-button-row">
+                <button mat-raised-button class="flex items-center p-5 cursor-pointer" (click)="addTask()">Add
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
+                </button>
             </div>
         </section>
     </div>
-    <div>
-        <!-- sorting -->
-    </div>
 </div>
 
-<!-- <div> -->
-<app-view-todo></app-view-todo>
-<!-- </div> -->
+<div class="px-16">
+    <table class="w-full border-collapse border border-gray-300 mt-10">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="border border-gray-300 px-4 py-2">S.No</th>
+                <th class="border border-gray-300 px-4 py-2">Task</th>
+                <th class="border border-gray-300 px-4 py-2">Description</th>
+                <th class="border border-gray-300 px-4 py-2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of tasks; track item.task; let i = $index) {
+            <tr class="border border-gray-300">
+                <td class="border border-gray-300 px-4 py-2 text-center">{{ i + 1 }}</td>
+                <td class="border border-gray-300 px-4 py-2">{{ item.task }}</td>
+                <td class="border border-gray-300 px-4 py-2">{{ item.description }}</td>
+                <td class="border border-gray-300 px-4 py-2 flex justify-center gap-10">
+                    <button (click)="editTask(i)" class="cursor-pointer text-blue-700">
+                        <mat-icon aria-hidden="false" fontIcon="edit"></mat-icon>
+                    </button>
+                    <button (click)="removeTask(i)" class="cursor-pointer text-red-700">
+                        <mat-icon aria-hidden="false" fontIcon="delete"></mat-icon>
+                    </button>
+                </td>
+            </tr>
+            } @empty {
+            <tr>
+                <td colspan="4" class="text-center py-4">No tasks found.</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
