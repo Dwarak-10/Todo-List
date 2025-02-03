@@ -1,4 +1,4 @@
-<div class="flex justify-around items-center pt-10">
+<div class="text-center sm:flex flex-row justify-around items-center pt-10">
     <div>
         <h3 class="text-xl font-medium">Title</h3>
         <form class="example-form mt-5">
@@ -16,18 +16,18 @@
             </mat-form-field>
         </form>
     </div>
-    <div>
-        <section>
-            <div class="example-button-row">
-                <button mat-raised-button class="flex items-center p-5 cursor-pointer" (click)="addTask()">Add
-                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
-                </button>
-            </div>
-        </section>
+    <div class="text-center w-[100px]">
+        <!-- <section> -->
+        <div class="example-button-row">
+            <button mat-raised-button class="flex items-center p-5 cursor-pointer" (click)="addTask()">Add
+                <mat-icon aria-hidden="false" aria-label="Example add icon" fontIcon="add"></mat-icon>
+            </button>
+        </div>
+        <!-- </section> -->
     </div>
 </div>
 
-<div class="px-16">
+<div class="px-10">
     <table class="w-full border-collapse border border-gray-300 mt-10">
         <thead>
             <tr class="bg-gray-200">
