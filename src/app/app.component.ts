@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { AddTodoComponent } from "../shared/add-todo/add-todo.component";
+import {  TodoComponent } from "../todo/todo.component";
 
 @Component({
   selector: 'app-root',
-  imports: [ AddTodoComponent],
+  imports: [TodoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

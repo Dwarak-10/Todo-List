@@ -1,9 +1,9 @@
 <div class="text-center sm:flex flex-row justify-around items-center pt-10">
-    <div>
+    <!-- <div>
         <h3 class="text-xl font-medium">Title</h3>
         <form class="example-form mt-5">
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Enter Task Name" [(ngModel)]="task" name="task">
+                <input matInput placeholder="Enter Task Name" [value]="task">
             </mat-form-field>
         </form>
     </div>
@@ -11,18 +11,18 @@
         <h3 class="text-xl font-medium">Description</h3>
         <form class="mt-5 ">
             <mat-form-field class="example-full-width">
-                <textarea matInput placeholder="Enter Task Description" [(ngModel)]="description"
-                    name="description"></textarea>
+                <textarea matInput placeholder="Enter Task Description" [value]="description"></textarea>
             </mat-form-field>
         </form>
-    </div>
+    </div> -->
     <div class="text-center w-[100px]">
         <!-- <section> -->
         <div class="example-button-row">
-            <button mat-raised-button class="flex items-center p-5 cursor-pointer" (click)="addTask()">Add
+            <!-- <button mat-raised-button class="flex items-center p-5 cursor-pointer" (click)="addTask()">Add
                 <mat-icon aria-hidden="false" aria-label="Example add icon" fontIcon="add"></mat-icon>
-            </button>
+            </button> -->
         </div>
+        <div class="text-red-700">{{err}}</div>
         <!-- </section> -->
     </div>
 </div>
@@ -38,25 +38,25 @@
             </tr>
         </thead>
         <tbody>
-            @for (item of tasks; track item.task; let i = $index) {
-            <tr class="border border-gray-300">
+            <!-- @for (item of tasks; track item.task; let i = $index) { -->
+            <tr class="border border-gray-300" *ngFor="let item of tasks | async; let i = index">
                 <td class="border border-gray-300 px-4 py-2 text-center">{{ i + 1 }}</td>
                 <td class="border border-gray-300 px-4 py-2">{{ item.task }}</td>
                 <td class="border border-gray-300 px-4 py-2">{{ item.description }}</td>
                 <td class="border border-gray-300 px-4 py-2 flex justify-center gap-10">
-                    <button (click)="editTask(i)" class="cursor-pointer text-blue-700">
+                    <!-- <button (click)="editTask(i)" class="cursor-pointer text-blue-700">
                         <mat-icon aria-hidden="false" fontIcon="edit"></mat-icon>
                     </button>
                     <button (click)="removeTask(i)" class="cursor-pointer text-red-700">
                         <mat-icon aria-hidden="false" fontIcon="delete"></mat-icon>
-                    </button>
+                    </button> -->
                 </td>
             </tr>
-            } @empty {
+            <!-- } @empty {
             <tr>
                 <td colspan="4" class="text-center py-4">No tasks found.</td>
             </tr>
-            }
+            } -->
         </tbody>
     </table>
 </div>
