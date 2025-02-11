@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {  TodoComponent } from "../todo/todo.component";
+import { TodosComponent } from '../todos/todos.component';
 
 @Component({
   selector: 'app-root',
-  imports: [TodoComponent],
+  imports: [TodosComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,0 +1,20 @@
+<footer class="flex justify-center items-center" [ngClass]="{ hidden: noTodosClass() }">
+    <span class="todo-count font-bold">
+        <strong>{{ activeCount() }}</strong>
+        {{ itemsLeftText() }}
+    </span>
+    <ul class="filters flex gap-10 ml-10">
+        <li class="bg-green-300 p-3 rounded-xl ">
+            <button class="cursor-pointer" [ngClass]="{ selected: filterSig() === filterEnum.all }"
+                (click)="changeFilter($event, filterEnum.all)">All</button>
+        </li>
+        <li class="bg-green-300 p-3 rounded-xl">
+            <button class="cursor-pointer" [ngClass]="{ selected: filterSig() === filterEnum.active }"
+                (click)="changeFilter($event, filterEnum.active)">Active</button>
+        </li>
+        <li class="bg-green-300 p-3 rounded-xl">
+            <button class="cursor-pointer" [ngClass]="{ selected: filterSig() === filterEnum.completed }"
+                (click)="changeFilter($event, filterEnum.completed)">Completed</button>
+        </li>
+    </ul>
+</footer>
